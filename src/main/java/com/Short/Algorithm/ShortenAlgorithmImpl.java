@@ -1,17 +1,22 @@
 package com.Short.Algorithm;
 
-public class ShortenAlgorithmImpl implements ShortenAlgorithm {
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
 
-	@Override
-	public static  String longUrlToShortUrl(String str) {
-		// TODO Auto-generated method stub
-		return null;
+@Component
+@Primary
+public class ShortenAlgorithmImpl implements ShortenAlgorithm{
+	
+	public String longUrlToShortUrl(String shortUrl) {
+		System.out.println("in cimpl lass");
+		return shortUrl;
+		
 	}
-
-	@Override
-	public static String shortUrlToLongUrl(String str) {
-		// TODO Auto-generated method stub
-		return null;
+	
+	public  String shortUrlToLongUrl(String longUrl) {
+		System.out.println("in impl class");
+		return longUrl;
 	}
-
+				
+				
 }
