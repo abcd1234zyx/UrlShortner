@@ -1,0 +1,10 @@
+package com.Short.Shortner;
+
+public class UrlRequestMapperDTO {
+	public static Url RequestDtoToUrl(UrlRequestDTO requestObj)
+	{
+		Url url=new Url();
+		url.setLongUrl(requestObj.getLongUrl());
+		return url;
+	}
+}
