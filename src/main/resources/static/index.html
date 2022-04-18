@@ -6,24 +6,22 @@
 </head>
 <body>
 	<form name="myFormId" id="myFormId" action="/submit" method="post">
-		<input type="text" name="longUrl">
+		<input id="longUrl" type="text" name="longUrl">
 		<input type="submit">
 	</form>
 </body>
 <script>
-document.getElementById("myFormId").addEventListener('submit', (event) => {
+ document.getElementById("myFormId").addEventListener('submit', (event) => {
     event.preventDefault();
-    // TODO do something here to show user that form is being submitted
-    fetch(event.target.action, {
-        method: 'POST',
-        body: new URLSearchParams(new FormData(event.target)) // event.target is the form
-    }).then((resp) => {
-        return resp.json(); // or resp.text() or whatever the server sends
-    }).then((body) => {
-        // TODO handle body
-    }).catch((error) => {
-        // TODO handle error
-    });
-});
+    let longUrl=document.getElementById("longUrl").value
+    fetch('http://localhost:8080/submit',{
+    	method:'POST',
+    	body: {
+    		longUrl:longUrl
+    	}
+    })
+    .then(response => response.json())
+    .then(data=>console.log(data))
+}); 
 </script>
 </html>
